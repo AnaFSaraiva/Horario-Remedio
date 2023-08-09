@@ -7,13 +7,14 @@
   box-shadow: 5px 8px 15px -3px #454545;
 }
 
-.formulario {
+.form {
   display: flex;
   flex-direction: column;
   
   width: 35%;
   max-width: 500px;
   min-width: 300px;
+  height: fit-content;
   padding: 30px 20px;
   
   background-color: #1d1d1d;
@@ -22,7 +23,7 @@
   border-radius: 8px;
 }
 
-.formulario input {
+.form input {
   cursor: text;
   margin-bottom: 20px;
   line-height: 1.25rem;
@@ -31,7 +32,7 @@
   transition: outline 50ms;
 }
 
-.formulario input:focus{
+.form input:focus{
   outline: 2px solid #00ffbf;
 }
 

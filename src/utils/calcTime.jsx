@@ -1,11 +1,11 @@
-export default function calculoHorario(horario, quantidade) {
+export default function calcTime(time, amount) {
 
-  const sum = 24 / parseInt(quantidade);
-  const [hour, minuts] = horario.split(":");
+  const sum = 24 / parseInt(amount);
+  const [hour, minuts] = time.split(":");
   let currentHour = parseInt(hour)
-  const listHours = [horario]
+  const listHours = [time]
 
-  for (let i = 0; i < quantidade - 1; i++) {
+  for (let i = 0; i < amount - 1; i++) {
     let nextHour = currentHour + sum
     if (nextHour > 24) {
       nextHour = nextHour - 24

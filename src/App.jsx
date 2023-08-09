@@ -1,6 +1,6 @@
 import Base from './components/Base';
 import './App.css'
-import Lista from './components/Lista';
+import List from './components/List';
 import { useState } from 'react';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className='origem'>
       <Base setList={setList} />
       <section>
-        <Lista list={list} />
+        <List list={list} />
       </section>
     </div>
   )

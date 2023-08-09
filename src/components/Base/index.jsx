@@ -3,13 +3,13 @@ import "./Base.css";
 import PropTypes from 'prop-types'
 // import { getLocalstorage, setLocalstorage } from "utils";
 export default function Base({ setList }) {
-  const [remedio, setRemedio] = useState("");
-  const [horario, setHorario] = useState("");
-  const [quantidade, setQuantidade] = useState("");
+  const [medicine, setMedicine] = useState("");
+  const [amount, setAmount] = useState("");
+  const [time, setTime] = useState("");
 
 
   const saveData = () => {
-    const newMedicine = { remedio, quantidade, horario };
+    const newMedicine = { medicine, amount, time };
     const listMedicine = JSON.parse(localStorage.getItem("listMedicine") || "[]")
     const newListMedicine = [...listMedicine, newMedicine]
     localStorage.setItem("listMedicine", JSON.stringify(newListMedicine));
@@ -18,41 +18,41 @@ export default function Base({ setList }) {
 
   return (
     <>
-      <form className="formulario">
+      <form className="form">
 
-        <label htmlFor="remedio">Qual o nome do remédio</label>
+        <label htmlFor="medicine">Qual o nome do remédio</label>
         <input
           required
           type="text"
-          id="remedio"
+          id="medicine"
           placeholder="Qual seu remédio?"
           onBlur={(e) => {
-            setRemedio(e.target.value);
+            setMedicine(e.target.value);
           }}
         />
-        <label htmlFor="quantidade">Quantas vezes ao dia</label>
+        <label htmlFor="amount">Quantas vezes ao dia</label>
         <input
           required
           type="number"
-          id="quantidade"
+          id="amount"
           min={1}
           max={4}
           placeholder="02"
           onBlur={(e) => {
-            setQuantidade(e.target.value);
+            setAmount(e.target.value);
           }}
         />
-        <label htmlFor="horario">Qual primeiro horário</label>
+        <label htmlFor="time">Qual primeiro horário</label>
         <input
           required
           type="time"
-          id="horario"
+          id="time"
           onBlur={(e) => {
-            setHorario(e.target.value);
+            setTime(e.target.value);
           }}
         />
 
-        <button type="button" className="enviar" onClick={saveData}>
+        <button type="button" onClick={saveData}>
           Enviar
         </button>
       </form>
