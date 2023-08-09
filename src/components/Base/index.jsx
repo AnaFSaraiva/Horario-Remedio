@@ -6,7 +6,7 @@ export default function Base({ setList }) {
   const [medicine, setMedicine] = useState("");
   const [amount, setAmount] = useState("");
   const [time, setTime] = useState("");
-
+  const isDisable = !medicine || !amount || !time
 
   const saveData = () => {
     const newMedicine = { medicine, amount, time };
@@ -14,6 +14,9 @@ export default function Base({ setList }) {
     const newListMedicine = [...listMedicine, newMedicine]
     localStorage.setItem("listMedicine", JSON.stringify(newListMedicine));
     setList(newListMedicine)
+    setAmount("")
+    setTime("")
+    setMedicine("")
   };
 
   return (
@@ -26,7 +29,8 @@ export default function Base({ setList }) {
           type="text"
           id="medicine"
           placeholder="Qual seu remédio?"
-          onBlur={(e) => {
+          value={medicine}
+          onChange={(e) => {
             setMedicine(e.target.value);
           }}
         />
@@ -38,7 +42,8 @@ export default function Base({ setList }) {
           min={1}
           max={4}
           placeholder="02"
-          onBlur={(e) => {
+          value={amount}
+          onChange={(e) => {
             setAmount(e.target.value);
           }}
         />
@@ -47,12 +52,13 @@ export default function Base({ setList }) {
           required
           type="time"
           id="time"
-          onBlur={(e) => {
+          value={time}
+          onChange={(e) => {
             setTime(e.target.value);
           }}
         />
 
-        <button type="button" onClick={saveData}>
+        <button type="button" onClick={saveData} disabled={isDisable}>
           Enviar
         </button>
       </form>

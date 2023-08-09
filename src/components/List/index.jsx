@@ -2,9 +2,6 @@ import calcTime from "../../utils/calcTime";
 import "./List.css";
 
 export default function List({ list }) {
-
-  console.log(list);
-
   return (
     list.map((item) =>
       <div className="list" key={item.medicine}>
